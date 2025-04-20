@@ -1,0 +1,54 @@
+Next.js Farm Website - GitHub-Ready Repository Structure & Implemented Pages
+
+1. Project Setup:
+    - Run the following commands:
+        - npx create-next-app@latest farm-website
+        - cd farm-website
+        - npm install tailwindcss mongoose      jsonwebtoken bcryptjs next-auth
+        - npx tailwindcss init -p
+
+2. Folder Structure:
+   farm-website/
+   ├── public/                (Static assets like images)
+   ├── components/            (Reusable React components)
+   ├── models/                (Mongoose models: Product.js, User.js)
+   ├── pages/
+   │   ├── index.js           (Home page)
+   │   ├── products/
+   │   │   ├── index.js       (Product listing page)
+   │   │   ├── [id].js        (Product details page)
+   │   ├── contact.js         (Contact page)
+   │   ├── newsletter.js      (Newsletter page)
+   │   ├── admin/
+   │   │   ├── index.js       (Admin dashboard)
+   │   │   ├── products.js    (Manage products)
+   │   │   ├── logs.js        (Admin logs)
+   │   │   ├── payments.js    (Payment history)
+   │   ├── api/
+   │   │   ├── auth/
+   │   │   │   ├── login.js   (Login API with JWT auth)
+   │   │   │   ├── logout.js  (Logout API)
+   │   │   ├── products/
+   │   │   │   ├── index.js   (GET, POST products API)
+   │   │   │   ├── [id].js    (GET, PUT, DELETE product API)
+   │   │   ├── logs.js        (Admin logs API)
+   │   │   ├── payments.js    (Payments API)
+   ├── styles/                (Tailwind CSS styles)
+   ├── utils/
+   │   ├── dbConnect.js       (MongoDB connection helper)
+   │   ├── dbTemp.js       (Test Database connection helper)
+   ├── .env.local             (Environment variables: MONGODB_URI, JWT_SECRET)
+   ├── package.json           (Project dependencies and scripts)
+   ├── tailwind.config.js     (Tailwind CSS configuration)
+   ├── next.config.js         (Next.js configuration)
+
+3. GitHub Setup:
+ - Create a new GitHub repository
+ - Initialize Git: git init
+ - Add files: git add .
+ - Commit: git commit -m "Initial Next.js project setup with implemented pages"
+ - Push to GitHub: git remote add origin <your-repo-url> && git push -u origin main
+
+4. View the Website:
+ - Run the app: npm run dev
+ - Open in browser: http://localhost:3000

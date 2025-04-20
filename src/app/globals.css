@@ -1,4 +1,8 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 
 :root {
   --background: #ffffff;
@@ -18,9 +22,33 @@
     --foreground: #ededed;
   }
 }
-
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.product-display-container {
+  border: 3px solid #333;
+  /* background-color: white; */
+  display: flex;
+  height: 15rem;
+  padding: 1rem;
+  margin: .5rem;
+  position: relative;
+}
+
+.product-display-content {
+  width: 90%;
+  height: 100%;
+  padding: .5rem;
+  background-color: #f9f9f9;
+  overflow: auto;
+  color: black;
+
 }
