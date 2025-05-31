@@ -1,6 +1,22 @@
 
 // utils/tempData.js
 
+// temp data for users and products
+const users = [
+  {
+    _id: "1",
+    username: "Bart",
+    password: "admin123",
+    role: 'admin'
+  },
+  {
+    _id: "2",
+    username: "John",
+    password: "user123",
+    role: "user"
+  },
+];
+
 const products = [
     {
       _id: "1",
@@ -24,6 +40,8 @@ const products = [
       image: "/images/honey.jpg",
     }
   ];
-  
-  export default products;
-  
+
+  export default {
+    users,
+    products,
+  }

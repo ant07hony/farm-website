@@ -37,6 +37,8 @@ body {
   border: 3px solid #333;
   /* background-color: white; */
   display: flex;
+  /* flex-direction: column; */
+  align-items: stretch;
   height: 15rem;
   padding: 1rem;
   margin: .5rem;
@@ -50,5 +52,6 @@ body {
   background-color: #f9f9f9;
   overflow: auto;
   color: black;
+  
 
 }

@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation"
 import dbTemp from '../../../../../utils/dbTemp'
 // console.log(`Temp db: `, dbTemp)
 
+// function to handle admin products functionality (CRUD)
 export default function AdminProducts() {
     const router = useRouter();
     const [ products, setProducts ] = useState([]);
@@ -17,35 +18,29 @@ export default function AdminProducts() {
     //  CHECK LOCALSTORAGE FOR A TOKEN
     const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
 
-    // useEffect: if no token redirect to login page otherwise fetch products with pagination
+    // useEffect to load db in useState
     useEffect(() => {
-        if (!token) router.push('/api/auth/login');
-        else fetchProducts();
-    }, [page, search]);
+        if (!token) return; // reconfigure when time to implement token security
+        const productList = Object.values(dbTemp.products)
+        setProducts(productList)
+    }, [token, page, search])
 
-    // setProducts with db information
-    const fetchProducts = async () => {
-        // const res = await fetch(`/api/admin/products?page=${page}&limit=${limit}&search=${search}`, {
-        //     headers: { Authorization: `Bearer ${token}`},
-        // });
-        // const data = await res.json();
-        // console.log(`res.json(): `, data )
-        const dbProducts = dbTemp
-        console.log(`dbProducts: `,dbProducts )
-        // setProducts(data.items);
-        setProducts(dbProducts);
-        // setTotal(data.total);
-    }
+    useEffect(() => {
+        console.log(`product list: `, products)
+    }, [products])
+
+
 
     return <div>
         <h1>
             Products Manage Component
         </h1>
 
+        {/* dbProductsDisplay function */}
         <fieldset
         className="product-display-container">
             <legend>DB Products</legend>
-            {products.map(p => (
+            {Array.isArray(products) && products.map(p => (
                 <div 
                 key={p._id}
                 className="product-display-content">
